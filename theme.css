@@ -1007,30 +1007,58 @@ textarea {
   }
 
   .hero {
-    min-height: 85vh;
-    padding: 2.5rem 0 3rem;
+    min-height: auto;
+    padding: 1.8rem 0 3rem;
   }
 
   .hero__content {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
-    max-width: 100%;
+    gap: 0;
+    max-width: 22.5rem;
     padding: 0;
+    margin: 0 auto;
+    align-items: end;
+  }
+
+  .hero__text {
+    grid-area: 1 / 1;
+    order: 1;
+    align-self: end;
+    max-width: none;
+    margin: 0 0.9rem 0.9rem;
+    padding: 1.15rem 1rem 1rem;
+    border-radius: 1.35rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.18)),
+      rgba(14, 12, 14, 0.52);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 18px 40px rgba(34, 17, 24, 0.22);
+    text-align: left;
+    color: #fff;
+    z-index: 2;
   }
 
   .hero__title {
-    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    font-size: clamp(2.5rem, 9vw, 3.9rem);
     margin: 0;
+    line-height: 0.95;
+    color: #fff;
+    background: none;
+    -webkit-text-fill-color: currentColor;
   }
 
   .hero__subtitle {
     font-size: 1rem;
-    margin: 0.8rem 0 1rem;
+    margin: 0.7rem 0 0;
+    max-width: 20ch;
+    color: rgba(255, 250, 252, 0.88);
   }
 
   .hero__actions {
     flex-direction: column;
     gap: 0.8rem;
+    margin-top: 1rem;
   }
 
   .btn {
@@ -1041,14 +1069,54 @@ textarea {
 
   .hero__note {
     font-size: 0.9rem;
-    margin-top: 1rem;
+    margin: 0.9rem 0 0;
+    max-width: 22ch;
+    color: rgba(255, 250, 252, 0.75);
   }
 
   .hero__hero-image {
+    grid-area: 1 / 1;
+    order: 1;
+    position: relative;
     display: block;
-    max-width: 240px;
-    margin: 0.5rem auto 0;
+    width: min(88vw, 360px);
+    max-width: none;
+    margin: 0 auto;
+    padding: 0.55rem;
     justify-self: center;
+    border-radius: 2rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.5));
+    box-shadow: 0 22px 45px rgba(185, 58, 108, 0.18);
+    transform: rotate(-1.5deg);
+    overflow: hidden;
+  }
+
+  .hero__hero-image::before {
+    content: "";
+    position: absolute;
+    inset: auto 12% -1rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(185, 58, 108, 0.28), transparent 70%);
+    filter: blur(14px);
+    z-index: -1;
+  }
+
+  .hero__hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0.55rem;
+    border-radius: 1.45rem;
+    background: linear-gradient(180deg, rgba(27, 18, 24, 0.02) 18%, rgba(27, 18, 24, 0.14) 48%, rgba(27, 18, 24, 0.72) 100%);
+  }
+
+  .hero__hero-image img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 1.45rem;
+    box-shadow: none;
+    filter: saturate(0.96) contrast(1.02) brightness(0.94);
   }
 
   .section {
@@ -1192,7 +1260,17 @@ textarea {
   }
 
   .hero__title {
-    font-size: clamp(2rem, 5.5vw, 3rem);
+    font-size: clamp(2.25rem, 10vw, 3.1rem);
+  }
+
+  .hero__text {
+    margin: 0 0.75rem 0.75rem;
+    padding: 1rem 0.9rem 0.95rem;
+  }
+
+  .hero__hero-image {
+    width: min(92vw, 320px);
+    transform: none;
   }
 
   .gallery {
